@@ -1,9 +1,10 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        l=[]
+        d={}
         for i in range(len(nums)):
-            for j in range(i+1,len(nums)):
-                if nums[i]+nums[j]==target:
-                    l+=[i,j]
+            required=target-nums[i]
+            if required in d.keys():
+                return [d[required],i]
+            d[nums[i]]=i
         return l
         
